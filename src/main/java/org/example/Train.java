@@ -4,9 +4,37 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.text.Utilities;
 import java.io.FilterOutputStream;
-import java.util.Scanner;
+import java.util.*;
 
 public class Train {
+    public int getMaxGong(int num1, int num2){
+        // 获取最大公约数
+        int minNumber = num1 > num2? num2: num1;
+        for(int a=minNumber; a >= 1; a--){
+            if(num1 % a == 0 && num2 % a == 0) {
+                return a;
+            }
+        }
+        return 1;
+    }
+
+    public int getMinGongBeiShu(int num1, int num2){
+        int maxNumber = num1 > num2? num1: num2;
+        for(int i=maxNumber; ;i += maxNumber) {
+            if (i % num1 == 0 & i % num2 == 0) {
+                return i;
+            }
+        }
+    }
+
+    public static ArrayList generateList(int number){
+        ArrayList<Integer> coll=new ArrayList<Integer>();
+        for(int i=1; i < number; i++) {
+            coll.add(i);
+        }
+        return coll;
+    }
+
     public static void main(String[] args) {
         System.out.println("单元测试");
         while (true) {
@@ -72,9 +100,17 @@ public class Train {
             String [] emailList = StringUtils.split(email, "@");
             System.out.println(StringUtils.join(emailList, ","));
         }
+        //最大公约数和最小公倍数
 
-
-
-
+        int [] num_list = {15, 24, 35};
+        Collection<Integer>newList = generateList(10);
+        System.out.println(StringUtils.center("数字生成列表", 50, "*"));
+        System.out.println(newList);
+        System.out.println(newList.toArray().length);
+        Train train = new Train();
+        int res2 = train.getMaxGong(8,3);
+        System.out.println("最大公约数" + res2);
+        int res3 = train.getMinGongBeiShu(6, 6);
+        System.out.println("最小公倍数" + res3);
     }
 }
