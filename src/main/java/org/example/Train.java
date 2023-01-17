@@ -34,6 +34,28 @@ public class Train {
         }
         return coll;
     }
+    /**
+     * @param salary: 用户输入薪资
+     * @return: 计算税后工资
+     */
+    public Double cal_salary(Double salary){
+        Double statndSalary = 5000.0;
+        Double curSalay = salary - statndSalary;
+        Double lastSalay;
+        if (curSalay < 0){
+            lastSalay = 0.0;
+        } else if (300.0 < curSalay & curSalay < 12000.0) {
+            lastSalay = 0.03;
+        } else if (12000 < curSalay & curSalay <25000) {
+            lastSalay = 0.2;
+        } else if (25000  < curSalay & curSalay < 35000) {
+            lastSalay = 0.25;
+        }else {
+            lastSalay = 0.35;
+        }
+        return salary - salary * lastSalay;
+
+    }
 
     public static void main(String[] args) {
         System.out.println("单元测试");
@@ -112,5 +134,31 @@ public class Train {
         System.out.println("最大公约数" + res2);
         int res3 = train.getMinGongBeiShu(6, 6);
         System.out.println("最小公倍数" + res3);
+        int salary = 20000;
+        Double res4 = train.cal_salary(new Double(salary));
+        System.out.println("税后工资: " + res4);
+
+        // <editor-fold des="分别通过for循环/While循环/do-While循环写一个死循环">
+        // for
+        for(int i=0; ; i++){
+            System.out.print(i);
+            break;
+        }
+//        while(1 == 1){
+//            System.out.print(1);
+//        }
+        // do while 该怎么写
+        // </editor-fold>
+
+        // <editor-fold des="鸡兔共35只,共94只脚,那么鸡和兔各几只?">
+        System.out.println("-------");
+        int maxJiNumber = 94 / 2;
+        for(int i=0; i < maxJiNumber; i++){
+            if (i * 2 + (35 - i) * 4 == 94){
+                System.out.println("鸡的个数： "+ i +", 图的个数: "+ (35-i));
+            }
+        }
+        // </editor-fold>
+
     }
 }
