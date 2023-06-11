@@ -25,8 +25,8 @@ public class MyHttpServer {
                 myHttpRequest.parse();
                 // 创建 输出流和响应
                 OutputStream outputStream = socket.getOutputStream();
-                String url = myHttpRequest.getUrl();
-
+                MyHttpResponse myHttpResponse = new MyHttpResponse(outputStream);
+                myHttpResponse.response(myHttpRequest.getUrl());
             }
         } catch(Exception e) {
             e.printStackTrace();

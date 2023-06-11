@@ -14,3 +14,21 @@
             g. ....
             h. 参考地址：参考地址： https://www.cnblogs.com/zknublx/p/17031245.html
     
+
+## 2023-06-12
+## java 文件基本操作
+    tomcat demo的实现案例方法：
+        前提： 使用了socket, io
+        思路：
+            1. 启动server ，循环接受浏览器请求
+            2. 接受接收浏览器请求， 并且解析url
+            3. 判断目标资源是否存在
+            4. 如果存在就返回
+    使用文件类FIle， 创建文件路径，声明文件类
+    1. 文件是否存在  file.exists()
+    文件读写操作：
+    1.  读取文件传操作FileInputStream 参数传入文件对象file
+    2.  二进制读取， byte [] bytes = new byte[(int)file.length()]
+    3: fileInputStream.read(bytes)
+    4: 二进制转string, String st = new String(bytes)
+
